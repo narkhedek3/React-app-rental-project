@@ -1,0 +1,20 @@
+@import './header.scss';
+@import './rental-home.scss';
+
+html, body {
+  height: 100%;
+}
+
+.type- {
+  &apartment {
+    color: blue !important;
+  }
+
+  &house {
+    color: red !important;
+  }
+
+  &condo {
+    color:  green !important;
+  }
+}
