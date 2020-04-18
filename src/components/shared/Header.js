@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -17,7 +18,7 @@ const Header = () => {
         </form>
         <ul className="navbar-nav mt-2 mt-lg-0 ml-auto">
           <li className="nav-item active">
-            <a className="nav-link" >Home <span className="sr-only">(current)</span></a>
+            <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
           </li>
 
           <li className="nav-item dropdown">
@@ -31,10 +32,10 @@ const Header = () => {
             </div>
           </li>
           <li className="nav-item">
-            <a className="nav-link" >Login</a>
+            <Link className="nav-link" to="/login">Login</Link> 
           </li>
           <li className="nav-item">
-            <a className="nav-link" >Register</a>
+            <Link className="nav-link" to="/register">Register</Link>
           </li>
         </ul>
       </div>

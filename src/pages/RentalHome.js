@@ -1,51 +1,29 @@
 import React from 'react';
 import RentalCard from '../components/rental/RentalCard';
 
+import connect from '../store/connect';
+
 class RentalHome extends React.Component {
 
   state = {
-    rentals: [{
-      _id : '1',
-      title: "Nice view on ocean",
-      city: "San Francisco",
-      category: "condo",
-      image: "http://via.placeholder.com/350x250",
-      numOfRooms: 4,
-      shared: true,
-      description: "Very nice apartment in center of the city.",
-      dailyPrice: 43
-    },
-    {
-      _id : '2',
-      title: "Modern apartment in center",
-      city: "New York",
-      category: "apartment",
-      image: "http://via.placeholder.com/350x250",
-      numOfRooms: 1,
-      shared: false,
-      description: "Very nice apartment in center of the city.",
-      dailyPrice: 11
-    },
-    {
-      _id: '3',
-      title: "Old house in nature",
-      city: "Bratislava",
-      category: "house",
-      image: "http://via.placeholder.com/350x250",
-      numOfRooms: 5,
-      shared: true,
-      description: "Very nice apartment in center of the city.",
-      dailyPrice: 23
-    }]
+    rentals: []
   }
 
-  renderRentals = rentals => rentals.map((rental) => <RentalCard rental={rental} />);
+  componentDidMount() {
+    const { rentals } = this.props;
+    this.setState({
+      rentals: rentals()
+    })
+  }
+
+  renderRentals = rentals => rentals.map((rental) => <RentalCard key={rental._id} rental={rental} />);
+   
 
   render = () => {
     const { rentals } = this.state;
     return (
       <div className="card-list">
-        <div className="container">
+        <div>
           <h1 className="page-title">Your Home All Around the World</h1>
           <div className="row">
             {
@@ -59,4 +37,7 @@ class RentalHome extends React.Component {
 
 }
 
-export default RentalHome;
+// below line can be removed using HOC i.e connect function
+// RentalHome.contextType = StateContext;
+
+export default connect(RentalHome);

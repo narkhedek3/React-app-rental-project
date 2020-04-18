@@ -5,6 +5,10 @@ html, body {
   height: 100%;
 }
 
+.rental-app-container {
+  padding: 50px;
+}
+
 .type- {
   &apartment {
     color: blue !important;

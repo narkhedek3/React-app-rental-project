@@ -3,9 +3,9 @@ import React from 'react';
 const RentalCard = (props) => {
 
   const { rental } = props;
-
+  
   return (
-    <div key={rental._id} className="col-md-3">
+    <div className="col-md-3">
       <div className="card bwm-card">
         <img className="card-img-top" src={rental.image} alt="Card cap" />
         <div className="card-body">
