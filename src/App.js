@@ -12,10 +12,13 @@ import {
 } from 'react-router-dom';
 import Routes from './Routes';
 
-import { StateContext } from './state-context';
-import store from './store';
+//import { StateContext } from './state-context';
+import Provider from './store/Provider';
 
-function App() {
+import { initStore } from './store';
+const store = initStore();
+
+const App = () => {
   
   //#region basic routing
   // const renderPages = () => {
@@ -32,7 +35,7 @@ function App() {
   //       return (<RentalHome />);
   //   }
   // }
-  //#endregion
+  //#endregion 
 
   return (
     <div className="App">
@@ -54,12 +57,12 @@ function App() {
       }
       {/* { renderPages() } */}
 
-      <StateContext.Provider value={store}>
+      <Provider store={store}>
         <Router> 
           <Header />
           <Routes />
-        </Router>
-      </StateContext.Provider>
+         </Router>
+      </Provider>
 
     </div>
   );

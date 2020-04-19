@@ -2,21 +2,23 @@
 
 import React from 'react';
 
-import { StateContext } from '../state-context';
+import { StateContext } from './Provider';
 
-const connect = (Component) => {
+const connect = mapStateToProps => Component => {
 
-  class connect extends React.Component {
+  class Connect extends React.Component {
     render = () => {
       // const store = this.context
       // return <Component store={store}/>
-      return <Component {...this.context}/>
+      
+      const sliceOfData = mapStateToProps(this.context.getState());
+      return <Component { ...sliceOfData }/>
     } 
   }
 
-  connect.contextType = StateContext;
+  Connect.contextType = StateContext;
 
-  return connect;
+  return Connect;
 
 }
 

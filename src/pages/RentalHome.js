@@ -11,8 +11,9 @@ class RentalHome extends React.Component {
 
   componentDidMount() {
     const { rentals } = this.props;
+    debugger
     this.setState({
-      rentals: rentals()
+      rentals: rentals 
     })
   }
 
@@ -40,4 +41,13 @@ class RentalHome extends React.Component {
 // below line can be removed using HOC i.e connect function
 // RentalHome.contextType = StateContext;
 
-export default connect(RentalHome);
+
+// to get only required data
+const mapStateToProps = (state) => {
+  return {
+    rentals: state.rentals
+  }
+}
+
+
+export default connect(mapStateToProps)(RentalHome);
