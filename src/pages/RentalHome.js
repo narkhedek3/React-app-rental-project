@@ -1,7 +1,10 @@
 import React from 'react';
 import RentalCard from '../components/rental/RentalCard';
 
-import connect from '../store/connect';
+// custom HOC redux connect
+// import connect from '../store/connect';
+
+import { connect } from 'react-redux';
 
 import { fetchRentals, createRentals } from '../actions';
 
@@ -54,7 +57,7 @@ class RentalHome extends React.Component {
 
 }
 
-// below line can be removed using HOC i.e connect function
+// below line can be removed using HOC[high order component] i.e connect function
 // RentalHome.contextType = StateContext;
 
 

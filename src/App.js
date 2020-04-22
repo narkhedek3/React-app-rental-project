@@ -12,8 +12,11 @@ import {
 } from 'react-router-dom';
 import Routes from './Routes';
 
+// custom react redux provider
 //import { StateContext } from './state-context';
-import Provider from './store/Provider';
+// import Provider from './store/Provider';
+
+import { Provider } from 'react-redux';
 
 import { initStore } from './store';
 const store = initStore();
