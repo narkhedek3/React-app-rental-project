@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// imporing order matters
+// imporing order matters for css
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
@@ -10,6 +10,15 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+// font awesome
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+
+// any statement must be after all imports
+library.add(fas);
+
+
 
 ReactDOM.render(
   <React.StrictMode>

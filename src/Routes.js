@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import RentalHome from './pages/RentalHome';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import RentalDetails from './pages/RentalDetails';
 
 const Routes = () => {
   return (
@@ -14,6 +15,9 @@ const Routes = () => {
         </Route>
         <Route path='/register'>
           <Register />
+        </Route>
+        <Route path='/rental/:id'>
+          <RentalDetails />
         </Route>
         <Route path='/'>
           <RentalHome />

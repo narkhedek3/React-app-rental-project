@@ -32,7 +32,7 @@ const Header = () => {
             </div>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="https://narkhedek3.github.io/React-app-rental-project/login">Login</Link> 
+            <Link className="nav-link" to="/login">Login</Link> 
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/register">Register</Link>

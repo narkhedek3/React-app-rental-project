@@ -1,4 +1,5 @@
 import rentals from './reducers/rentals';
+import rental from './reducers/rental';
 import { createStore, combineReducers } from 'redux';
 
 // const store = {
@@ -15,8 +16,7 @@ export const initStore = () => {
   // No Math.random() 
   const reducers = combineReducers({
     rentals,
-    data: () => [1, 2, 3],
-    data1: () => ['A', 'B', 'C']
+    rental
   });
 
   const reduxBrowserExtension = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

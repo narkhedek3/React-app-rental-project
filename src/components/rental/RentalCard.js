@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const RentalCard = (props) => {
 
   const { rental } = props;
   
   return (
-    <div className="col-md-3">
+    <Link className="col-md-3 rental-link" to={`rental/${rental._id}`}>
       <div className="card bwm-card">
         <img className="card-img-top" src={rental.image} alt="Card cap" />
         <div className="card-body">
@@ -14,7 +15,7 @@ const RentalCard = (props) => {
           <p className="card-text">${rental.dailyPrice} per Night &#183; Free Cancelation</p>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
