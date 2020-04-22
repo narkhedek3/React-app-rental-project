@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/React-app-rental-project/static/css/main.13ce4467.chunk.css",
-    "main.js": "/React-app-rental-project/static/js/main.17cec351.chunk.js",
-    "main.js.map": "/React-app-rental-project/static/js/main.17cec351.chunk.js.map",
+    "main.css": "/React-app-rental-project/static/css/main.250d5f70.chunk.css",
+    "main.js": "/React-app-rental-project/static/js/main.5b90a183.chunk.js",
+    "main.js.map": "/React-app-rental-project/static/js/main.5b90a183.chunk.js.map",
     "runtime-main.js": "/React-app-rental-project/static/js/runtime-main.200bf251.js",
     "runtime-main.js.map": "/React-app-rental-project/static/js/runtime-main.200bf251.js.map",
     "static/css/2.69121389.chunk.css": "/React-app-rental-project/static/css/2.69121389.chunk.css",
-    "static/js/2.5caa65ed.chunk.js": "/React-app-rental-project/static/js/2.5caa65ed.chunk.js",
-    "static/js/2.5caa65ed.chunk.js.map": "/React-app-rental-project/static/js/2.5caa65ed.chunk.js.map",
+    "static/js/2.de7ca158.chunk.js": "/React-app-rental-project/static/js/2.de7ca158.chunk.js",
+    "static/js/2.de7ca158.chunk.js.map": "/React-app-rental-project/static/js/2.de7ca158.chunk.js.map",
     "index.html": "/React-app-rental-project/index.html",
-    "precache-manifest.93efd55e327ca9ea86d3077c3e1ab6b5.js": "/React-app-rental-project/precache-manifest.93efd55e327ca9ea86d3077c3e1ab6b5.js",
+    "precache-manifest.d5e3197b352ad4672d33b9f450c37eff.js": "/React-app-rental-project/precache-manifest.d5e3197b352ad4672d33b9f450c37eff.js",
     "service-worker.js": "/React-app-rental-project/service-worker.js",
     "static/css/2.69121389.chunk.css.map": "/React-app-rental-project/static/css/2.69121389.chunk.css.map",
-    "static/css/main.13ce4467.chunk.css.map": "/React-app-rental-project/static/css/main.13ce4467.chunk.css.map",
-    "static/js/2.5caa65ed.chunk.js.LICENSE.txt": "/React-app-rental-project/static/js/2.5caa65ed.chunk.js.LICENSE.txt"
+    "static/css/main.250d5f70.chunk.css.map": "/React-app-rental-project/static/css/main.250d5f70.chunk.css.map",
+    "static/js/2.de7ca158.chunk.js.LICENSE.txt": "/React-app-rental-project/static/js/2.de7ca158.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.200bf251.js",
     "static/css/2.69121389.chunk.css",
-    "static/js/2.5caa65ed.chunk.js",
-    "static/css/main.13ce4467.chunk.css",
-    "static/js/main.17cec351.chunk.js"
+    "static/js/2.de7ca158.chunk.js",
+    "static/css/main.250d5f70.chunk.css",
+    "static/js/main.5b90a183.chunk.js"
   ]
 }
