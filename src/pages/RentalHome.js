@@ -1,5 +1,5 @@
 import React from 'react';
-import RentalCard from '../components/rental/RentalCard';
+import RentalCard from 'components/rental/RentalCard';
 
 // custom HOC redux connect
 // import connect from '../store/connect';
