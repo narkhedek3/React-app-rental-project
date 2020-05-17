@@ -1,21 +1,28 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import RentalHome from './pages/RentalHome';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import RentalDetails from './pages/RentalDetails';
+import AuthRoute from 'components/auth/AuthRoute';
+import GuestRoute from 'components/auth/GuestRoute';
+
+import RentalHome from 'pages/RentalHome';
+import Login from 'pages/Login';
+import Register from 'pages/Register';
+import RentalDetails from 'pages/RentalDetails';
+import Secret from 'pages/Secret';
 
 const Routes = () => {
   return (
     <div className="container rental-app-container">
       <Switch>
-        <Route path='/login'>
+        <GuestRoute path='/login'>
           <Login />
-        </Route>
-        <Route path='/register'>
+        </GuestRoute>
+        <GuestRoute path='/register'>
           <Register />
-        </Route>
+        </GuestRoute>
+        <AuthRoute path='/secret'>
+          <Secret />
+        </AuthRoute>
         <Route path='/rental/:id'>
           <RentalDetails />
         </Route>

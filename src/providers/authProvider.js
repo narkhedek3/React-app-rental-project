@@ -14,9 +14,18 @@ const AuthBaseProvider = (props) => {
 
   const checkAuthState = () => {
     const decodedToken = decodeToken(getToken());
-    if(decodedToken && moment().isBefore(getExpirationTime(decodedToken)) ) {
+    if (isTokenValid(decodedToken)) {
       props.dispatch(userAuthanticated(decodedToken));
     }
+  }
+
+  const isAuthenticated = () => {
+    const decodedToken = decodeToken(getToken());
+    return decodeToken && isTokenValid(decodedToken);
+  }
+
+  const isTokenValid = decodedToken => {
+    return decodedToken && moment().isBefore(getExpirationTime(decodedToken))
   }
 
   const getExpirationTime = (decodedToken) => {
@@ -26,14 +35,14 @@ const AuthBaseProvider = (props) => {
   const getToken = () => {
     return localStorage.getItem('jwt_token');
   }
-    
+
   const decodeToken = token => {
     return jwt.decode(token);
   }
 
   const signOut = () => {
     localStorage.removeItem('jwt_token');
-    props.dispatch({type: 'USER_LOGGED_OUT'});
+    props.dispatch({ type: 'USER_LOGGED_OUT' });
   }
 
   const signIn = (loginData) => {
@@ -49,12 +58,13 @@ const AuthBaseProvider = (props) => {
   const authApi = {
     signIn,
     signOut,
-    checkAuthState
+    checkAuthState,
+    isAuthenticated
   }
 
   return (
     <AuthContext.Provider value={authApi}>
-      { props.children }
+      {props.children}
     </AuthContext.Provider>
   )
 
@@ -77,10 +87,10 @@ export const useAuth = () => {
 // if i dont add previous props in withAuth i am not able to use dispatch prop in LogIn
 // So best practice is to provide all props of higher order component to lower order component 
 export const withAuth = (Component) => {
-  return function(props) {
+  return function (props) {
     return (
       <AuthContext.Consumer>
-        {authApi => <Component {...props} auth={authApi}/>}
+        {authApi => <Component {...props} auth={authApi} />}
       </AuthContext.Consumer>
     )
   }
