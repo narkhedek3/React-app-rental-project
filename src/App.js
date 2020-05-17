@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Header from './components/shared/Header';
 // import RentalHome from './pages/RentalHome';
@@ -18,11 +18,36 @@ import Routes from './Routes';
 
 import { Provider } from 'react-redux';
 
+import { AuthProvider, useAuth } from 'providers/authProvider';
+
+
 import { initStore } from './store';
 const store = initStore();
 
+
+const Providers = ({ children }) =>
+  <Provider store={store}>
+    <AuthProvider>
+      {children}
+    </AuthProvider>
+  </Provider>
+
+const RentalApp = ({ children }) => {
+
+  const authService = useAuth();
+
+  useEffect(() => {
+    authService.checkAuthState();
+  },[authService]);
+
+  return (<Router>
+    <Header logout={authService.signOut}/>
+    <Routes />
+  </Router>)
+}
+
 const App = () => {
-  
+
   //#region basic routing
   // const renderPages = () => {
   //   const { pathname } = window.location;
@@ -42,30 +67,27 @@ const App = () => {
 
   return (
     <div className="App">
-    
+
       {
-      //#region   custom router code
-      /*<Router>
-        <Route path='/login'>
-        <Login />
-        </Route>
-        <Route path='/register'>
-        <Register />
-        </Route>
-        <Route path='/'>
-        <RentalHome />
-        </Route>
-      </Router> */
-      //#endregion
+        //#region   custom router code
+        /*<Router>
+          <Route path='/login'>
+          <Login />
+          </Route>
+          <Route path='/register'>
+          <Register />
+          </Route>
+          <Route path='/'>
+          <RentalHome />
+          </Route>
+        </Router> */
+        //#endregion
       }
       {/* { renderPages() } */}
 
-      <Provider store={store}>
-        <Router> 
-          <Header />
-          <Routes />
-         </Router>
-      </Provider>
+      <Providers>
+        <RentalApp />
+      </Providers>
 
     </div>
   );

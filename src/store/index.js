@@ -1,5 +1,6 @@
 import rentals from './reducers/rentals';
 import rental from './reducers/rental';
+import auth from './reducers/auth';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 
 import thunk from 'redux-thunk'; 
@@ -43,7 +44,8 @@ export const initStore = () => {
   // No Math.random() 
   const reducers = combineReducers({
     rentals,
-    rental
+    rental,
+    auth
   });
 
   const composeEnhancerForChromeExtension = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__  || compose

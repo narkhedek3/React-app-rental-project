@@ -1,12 +1,12 @@
 import React from 'react';
 import LoginForm from 'components/forms/LoginForm';
+import { Redirect } from 'react-router-dom';
+
+import { withAuth } from 'providers/authProvider';
+
+import ApiError from 'components/forms/ApiError';
 
 class Login extends React.Component {
-
-  state = {
-    email: '',
-    password: ''
-  }
 
   // handleInputChange = (event) => {
   //   const { value, name } = event.target;
@@ -18,31 +18,39 @@ class Login extends React.Component {
   //   this.setState({password});
   // }
 
+  // handleSubmit = (event) => {
+  //   alert(JSON.stringify(this.state));
+  // }
 
-  handleSubmit = (event) => {
-    alert(JSON.stringify(this.state));
+  constructor() {
+    super();
+    this.state = {
+      shouldRedirect: false,
+      errors: []
+    }
   }
 
-  loginUser = (loginData) => {
-    alert(JSON.stringify(loginData));
+  loginUser = loginData => {
+    this.props.auth.signIn(loginData)
+    .then(_ => this.setState({ shouldRedirect: true}))
+    .catch(errors => this.setState({errors}));  
   }
 
   render = () => {
+
+    const { shouldRedirect, errors } = this.state;
+
+    if (shouldRedirect) {
+      return <Redirect to={{ pathname: '/' }} />
+    }
+
     return (
       <div className="bwm-form">
         <div className="row">
           <div className="col-md-5">
             <h1 className="page-title">Login</h1>
-            {/* <!-- <div className="alert alert-success">
-                  Some message
-                </div> --> */}
-            <LoginForm onSubmit={this.loginUser}/>
-
-            {/* <div className="alert alert-danger">
-                  <p>
-                    Some Error
-                  </p>
-                </div> --> */}
+            <LoginForm onSubmit={this.loginUser} />
+            <ApiError errors={errors} />
           </div>
           <div className="col-md-6 ml-auto">
             <div className="image-container">
@@ -57,4 +65,4 @@ class Login extends React.Component {
 
 }
 
-export default Login;
+export default withAuth(Login);
