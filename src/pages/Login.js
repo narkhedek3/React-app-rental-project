@@ -40,6 +40,12 @@ class Login extends React.Component {
 
     const { shouldRedirect, errors } = this.state;
 
+    let message = "";
+
+    if(this.props.location.state) {
+      message  = this.props.location.state.message;
+    }
+
     if (shouldRedirect) {
       return <Redirect to={{ pathname: '/' }} />
     }
@@ -49,6 +55,11 @@ class Login extends React.Component {
         <div className="row">
           <div className="col-md-5">
             <h1 className="page-title">Login</h1>
+            { message && 
+              <div className="alert alert-success">
+                <p>{message}</p>
+              </div>
+            }
             <LoginForm onSubmit={this.loginUser} />
             <ApiError errors={errors} />
           </div>
